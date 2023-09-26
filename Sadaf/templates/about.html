@@ -1,0 +1,100 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}About | Sadaf{% endblock title %}
+
+
+{% block header_items %}
+    <link rel="stylesheet" href="{% static 'css/about.css'%}">
+{% endblock header_items %}
+
+{% block content %}
+    {% include 'includes/navbar.html' %}
+    <div class="about container">
+        <section class="row d-flex justify-content-center my-md-5 my-3">
+            <div class="col-md-6 col-10 mx-auto my-auto">
+                <h1 class="section-heading">About Me</h1>
+                <p>"Hello friends! I'm an aspiring Computer Science student with a passion for contributing to the field of Artificial Intelligence.</p><br>
+                <p>I created this website to share my work, ideas, creations, insights, etc. The goal is to hopefully make a meaningful impact through my content.</p>
+            </div>
+            <div class="col-md-4 col-sm-10 d-flex justify-content-center">
+                <img src="{% static 'img/me.jpg'%}" alt="pic of Sadaf">
+            </div>
+            
+        </section>
+
+        <section class="row d-flex my-md-5 my-3 justify-content-center">
+            <div class="col-md-6 col-10 mx-auto my-auto">
+                <h1>Who Am I</h1>
+                <p>My name is Mian Sadaf Ali Shah. A Programmer, Graphic Designer, footballer and a person of bigger Ambitions. I’ve been working on Graphic Designing for quite a long and Now i really am exploring this limitless field of AI.</p>
+                <p>This page is a little self indulgent, it’s all about me. Hopefully you’ll find it interesting though 🙂.</p>
+            </div>
+            <div class="col-md-4 col-sm-10 d-flex justify-content-center">
+                <img src="{% static 'img/me.jpg'%}" alt="pic of Sadaf">
+            </div>
+        </section>
+
+        <section class="d-flex row my-3 justify-content-center">
+            <div class="col-md-6 col-10 mx-auto my-auto">
+                <h1>Quick Facts About Me</h1>
+                <ul class="">
+                    <li>I'm Muslim
+                    </li>
+                    <li>Live in Pakistan
+                    </li>
+                    <li>Languages I Speak: English, Pashto, urdu
+                    </li>
+                    <li>Stuff i'm interested in: Coding, Movies, philosophy, physics and football 
+                    </li>
+                    <li>Fantacies: Vampire, Were-Wolf, Pirate, Billionaire, Surgoen.
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="col-md-4 col-sm-10 d-flex justify-content-center">
+                <img src="{% static 'img/me.jpg'%}" alt="pic of Sadaf">
+            </div>
+        </section>
+
+        <section class="d-flex row my-5">
+            <div class="col-md-6 col-10 mx-auto my-5">
+               <h1>My Journey</h1>
+                <p>My Journey starts back when i change my mind to study Computer Science intead of medicine which i have taken in my Fsc. This change made me Endup in Comsats University Islamabad, Abbottabad Campus. Apart from academic perspective, University have brought be enormous gains.(Want to know more about Comsats, Feel free to connect, or maybe there's an article you should check out.)</p>
+                <p>Gaming has also been a long part of my life, and i have been at the top of the leagues.</p>
+                <br>
+                <p>Fast forward, I met people with matching interest, with them i start sort of Software House but i was a failure, will be soon completed</p>
+            </div>
+
+            <div class="col-md-4 col-10 mx-auto  mt-md-5 my-2 ">
+                
+
+                <ul class="journey-timeline">
+                    <li>
+                        <h1>2003 - 2008</h1>
+                        <p>I was born in Pakistan in 2003. Raised in a working class family. Studied at Malakand Public School in our City. Started learning python from pashto instructor online.</p>
+                    </li>
+                    <li>
+                        <h1>2009 - 2017</h1>
+                        <p>Changed my school to Army Public School. Met an inpiring person who completely change the direction of my thinking. Pass my school with low grades which is quite embaracing. became one of the good player in Mobile Gaming.</p>
+                    </li>
+                    <li>
+                        <h1>2018-2021</h1>
+                        <p>Focused again on my coding. Left gaming forever. intermediate passed with low grades. Start gaining intrest in Philosophy and Psychology</p>
+                    </li>
+                    <li>
+                        <h1>2021-current</h1>
+                        <p>Enrolled in Computer Science at Comsats University Islamabad. (Will be updated soon...)</p>
+                    </li>
+                        
+                </ul>
+                
+            </div>
+
+            
+
+        </section>
+    </div>
+    
+    {% include 'includes/subscribe.html' %}
+    {% include 'includes/footer.html' %}
+{% endblock content %}

@@ -1,0 +1,21 @@
+.section-1{
+    height: 100vh;
+}
+
+.contact-form-input{
+    border: 1px solid #ced4da;
+    border-radius: 12px;
+    padding: 7px;
+    padding-left: 15px;
+}
+
+.contact-form-button{
+    border: 1px solid #ced4da;
+    border-radius: 12px;
+    padding: 10px;
+    background-color: #26a7de;
+    color: white;
+}
+.contact-form-button:hover{
+    background-color: #2ba1d3;
+}

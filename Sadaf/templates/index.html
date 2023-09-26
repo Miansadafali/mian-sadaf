@@ -1,0 +1,106 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}Home | Sadaf{% endblock title %}
+
+{% block header_items %}
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+{% endblock header_items %}
+
+{% block content %}
+    
+  {% include 'includes/navbar.html' %}
+
+    <div class="container-fluid p-0 m-0">
+      <section class="section-1">
+        
+            
+              <h1 class="mx-auto w-75 text-center pt-4">Hello, I'm Mian Sadaf.</h1>
+              <h1 class="mx-auto w-75 text-center">Alive for seeking out new horizons of imagination and significance</h1>
+            </section>
+
+
+        <section class="section-2 container row mx-auto">
+
+            <div class="col-md-5 col-sm-8 p-2 mx-auto">
+                  <div class="d-flex mb-3">
+                    <h1 class="card-title">Explore</h1>
+                    <div class="w-100"></div>
+                    <a href="#"><i class="show-more-icon fa-solid fa-arrow-right fa-xl m-3 mt-4 pt-2" style="color: #26a7de"></i></a>
+                  </div>
+                  
+
+                  
+                  <div class="explore-item row card p-1 my-1">
+                    <div class="d-flex p-0">
+                        <img class="explore-list-item-pic" src="{% static 'img/me.jpg'%}" alt="">
+                        <div>
+                            <p class="explore-list-item-name">Name</p> 
+                            <p class="explore-list-item-description text-truncate">The description of the item</p>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="explore-item row card p-1 my-1">
+                    <div class="d-flex p-0">
+                        <img class="explore-list-item-pic" src="{% static 'img/me.jpg'%}" alt="">
+                        <div>
+                            <p class="explore-list-item-name">Name</p> 
+                            <p class="explore-list-item-description text-truncate">The description of the item</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="explore-item row card p-1 my-1">
+                    <div class="d-flex p-0">
+                        <img class="explore-list-item-pic" src="{% static 'img/me.jpg'%}" alt="">
+                        <div>
+                            <p class="explore-list-item-name">Name</p> 
+                            <p class="explore-list-item-description text-truncate">The description of the item</p>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="article-card col-md-5 col-sm-8 p-2 mx-auto">
+              <div class="d-flex mb-3">
+                <h1 class="card-title">Articles</h1>
+                <div class="w-100"></div>
+                <a href="{% url 'articles' %}"><i class="show-more-icon fa-solid fa-arrow-right fa-xl m-3 mt-4 pt-2" style="color: #26a7de"></i></a>
+              </div>
+                  
+                  {% for article in articles %}
+                    <a class="article-item row text-decoration-none" href="{% url 'article_detail' article.Slug %}"> 
+                      <p class="article-items-name">{{article.Title}}</p>
+                      <p class="article-items-description text-truncate ">{{article.Summary}}</p>
+                    </a>
+                    <hr>
+                  {% endfor %}
+            </div>
+
+            
+
+        </section>
+
+        <section class="section-3 ">
+            <div class="container d-flex flex-wrap justify-content-center p-0 mx-auto">
+                <img class="img-fluid col-md-4 col-6 m-0s" src="{% static 'img/me.jpg'%}" alt="">
+                <div class="col-md-6 col-12">
+                    <h1 class="about-title text-center">About Me</h1>
+                    <p class="about-description text-justify">Hey, I'm Mian Sadaf. I'm a Programmer, Graphic Designer and Explorer as a whole. <br>
+                    I've been intrested in Computer Technologies since my childhood which help me explore and gain quite an experience on fields such as Graphic Designing, Web Development, etc. <br>
+                    Now it been a while that i'm exploring the field of AI. which has inspired me to contribute to it with a positive impact. <br>
+                    Currently i'm a student of Bachlor's of Computer Science at Comsats University Islamabad. <br><br>
+                    If you want to learn even more about me and how I got started, there's a whole page here 🙂</p>
+                    
+                  </div>
+            </div>
+        </section>
+
+        
+        {% include 'includes/subscribe.html'%}
+        {% include 'includes/footer.html' %}
+    </div>
+
+    
+    
+{% endblock content %}

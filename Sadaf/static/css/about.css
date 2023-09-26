@@ -1,0 +1,60 @@
+.about section:nth-child(odd){
+    flex-direction: row-reverse;
+    text-align: justify;
+}
+div section:nth-child(even){
+    text-align:justify;
+}
+
+body{
+    background-color: #f8f9fa;
+}
+
+section img{
+    border-radius: 10px;
+}
+
+.journey-timeline h1{
+    font-size:x-large;
+}
+
+.journey-timeline {
+    position: relative;
+  }
+  
+  .journey-timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: #ccc;
+  }
+  
+  .journey-timeline li {
+    position: relative;
+  }
+  
+  /* .journey-timeline li::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #333;
+  } */
+  
+  .journey-timeline li:not(:first-child)::before {
+    top: -30px; 
+  }
+  
+  .journey-timeline li:first-child::before {
+    top: 0;
+  }
+  
+  .journey-timeline li:last-child::before {
+    top: auto;
+    bottom: 0;
+  }
