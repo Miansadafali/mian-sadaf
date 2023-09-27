@@ -2,11 +2,11 @@ import os
 from .settings import *
 import dj_database_url
 
-SECRET_KEY = os.environ('SECRET_KEY')
+SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = ['mian-sadaf-093df2897493.herokuapp.com'] 
 
-DEBUG = os.environ('DEBUG', True)
+DEBUG = False
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
