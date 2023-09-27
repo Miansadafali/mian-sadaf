@@ -1,9 +1,10 @@
 import os
 from .settings import *
+import dj_database_url
 
 SECRET_KEY = os.environ('SECRET_KEY')
 
-ALLOWED_HOSTS = [os.environ('ALLOWED_HOSTS')] 
+ALLOWED_HOSTS = ['mian-sadaf-093df2897493.herokuapp.com'] 
 
 DEBUG = os.environ('DEBUG', True)
 
@@ -25,12 +26,6 @@ connection_string = os.environ('DATABASE_URL')
 parameters = {pair.split('=')[0]: pair.split('=')[1] for pair in connection_string.split(';')}
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': parameters['dbname'],
-        'HOST': parameters['host'],
-        'USER': parameters['username'],
-        'PASSWORD': parameters['password'],
-    }
+    'default': dj_database_url.config()
 }
 
