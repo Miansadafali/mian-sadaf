@@ -4,7 +4,10 @@ import dj_database_url
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
-ALLOWED_HOSTS = ['mian-sadaf-093df2897493.herokuapp.com'] 
+ALLOWED_HOSTS = [
+    'mian-sadaf-093df2897493.herokuapp.com',
+    'miansadaf.tech'
+] 
 
 DEBUG = False
 
