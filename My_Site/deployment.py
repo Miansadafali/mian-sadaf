@@ -6,7 +6,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = [
     'mian-sadaf-093df2897493.herokuapp.com',
-    'miansadaf.tech'
+    'www.miansadaf.tech'
 ] 
 
 DEBUG = False
