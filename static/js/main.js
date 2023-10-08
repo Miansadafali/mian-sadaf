@@ -1,7 +1,9 @@
 var menu_icon = document.getElementsByClassName("hamburger");
 var menu_icon = document.getElementById("menu-icon");
 var close_icon = document.getElementById("close-icon");
-var navbar = document.getElementById("navbar-toggle"); 
+var navbar = document.getElementById("navbar-toggle");
+
+var width = window.innerWidth;
 
 menu_icon.addEventListener("click", function(){
     menu_icon.style.display = "none";
@@ -50,7 +52,3 @@ toggle.addEventListener('click', () => {
     }
     return localStorage.setItem('mode', 'dark');
 });  
-
-
-
-             

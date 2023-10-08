@@ -75,7 +75,6 @@ body.dark-mode{
 
 .navbar-navigations{
     margin-right:5vw;
-    height: fit-content;
 }
 
 .nav-link{
@@ -98,7 +97,6 @@ body.dark-mode{
 .hamburger{
     position: absolute;
     right: 0;
-    margin-top: 20px;
     margin-right: 5vw;
     padding:30px;
     color: black;
@@ -200,6 +198,11 @@ body.dark-mode{
         transition: all 0.2s ease-in-out; 
         overflow: hidden;
         z-index: 15;
+    }
+
+    .nav-item{
+        margin: 0;
+        padding: 0;
     }
 
 

@@ -10,55 +10,57 @@
 {% block content %}
     
   {% include 'includes/navbar.html' %}
+{% comment %} 
+    <div class="p-0 m-0"> {% endcomment %}
+      <section class="section-1 my-auto">
+        <h1 class="mx-auto w-75 text-center pt-4">Hello, I'm Mian Sadaf.</h1>
+        <h1 class="mx-auto w-75 text-center">Alive for seeking out new horizons of imagination and significance</h1>
 
-    <div class="container-fluid p-0 m-0">
-      <section class="section-1">
-        
-            
-              <h1 class="mx-auto w-75 text-center pt-4">Hello, I'm Mian Sadaf.</h1>
-              <h1 class="mx-auto w-75 text-center">Alive for seeking out new horizons of imagination and significance</h1>
-            </section>
+        <div class="promotion">
+          <video src="{% static "img/stvideo.mp4" %}" class="container" autoplay loop muted poster></video>
+        </div>
+      </section>
 
 
-        <section class="section-2 container row mx-auto">
+        <section class="section-2  row mx-auto my-3 py-3">
 
-            <div class="col-md-5 col-sm-8 p-2 mx-auto">
+            <div class="container col-md-5 col-sm-8 p-2 mx-auto">
                   <div class="d-flex mb-3">
                     <h1 class="card-title">Explore</h1>
                     <div class="w-100"></div>
-                    <a href="#"><i class="show-more-icon fa-solid fa-arrow-right fa-xl m-3 mt-4 pt-2" style="color: #26a7de"></i></a>
+                    <a href="{% url 'explore' %}"><i class="show-more-icon fa-solid fa-arrow-right fa-xl m-3 mt-4 pt-2" style="color: #26a7de"></i></a>
                   </div>
                   
+                 
+                    <div class="explore-item row card p-1 my-1">
+                      <div class="d-flex p-0">
+                          <img class="explore-list-item-pic" src="{% static 'img/me.jpg'%}" alt="">
+                          <div>
+                              <p class="explore-list-item-name">Comming Soon...</p> 
+                              <p class="explore-list-item-description text-truncate">Under Construction</p>
+                          </div>
+                      </div>
+                    </div>
 
-                  
-                  <div class="explore-item row card p-1 my-1">
-                    <div class="d-flex p-0">
-                        <img class="explore-list-item-pic" src="{% static 'img/me.jpg'%}" alt="">
-                        <div>
-                            <p class="explore-list-item-name">Name</p> 
-                            <p class="explore-list-item-description text-truncate">The description of the item</p>
-                        </div>
+                    <div class="explore-item row card p-1 my-1">
+                      <div class="d-flex p-0">
+                          <img class="explore-list-item-pic" src="{% static 'img/logo2.png'%}" alt="">
+                          <div>
+                              <p class="explore-list-item-name"></p> 
+                              <p class="explore-list-item-description text-truncate"></p>
+                          </div>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="explore-item row card p-1 my-1">
-                    <div class="d-flex p-0">
-                        <img class="explore-list-item-pic" src="{% static 'img/me.jpg'%}" alt="">
-                        <div>
-                            <p class="explore-list-item-name">Name</p> 
-                            <p class="explore-list-item-description text-truncate">The description of the item</p>
-                        </div>
+                    <div class="explore-item row card p-1 my-1">
+                      <div class="d-flex p-0">
+                          <img class="explore-list-item-pic" src="{% static 'img/logo2.png'%}" alt="">
+                          <div>
+                              <p class="explore-list-item-name"></p> 
+                              <p class="explore-list-item-description text-truncate"></p>
+                          </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="explore-item row card p-1 my-1">
-                    <div class="d-flex p-0">
-                        <img class="explore-list-item-pic" src="{% static 'img/me.jpg'%}" alt="">
-                        <div>
-                            <p class="explore-list-item-name">Name</p> 
-                            <p class="explore-list-item-description text-truncate">The description of the item</p>
-                        </div>
-                    </div>
-                  </div>
             </div>
 
             <div class="article-card col-md-5 col-sm-8 p-2 mx-auto">
@@ -67,14 +69,34 @@
                 <div class="w-100"></div>
                 <a href="{% url 'articles' %}"><i class="show-more-icon fa-solid fa-arrow-right fa-xl m-3 mt-4 pt-2" style="color: #26a7de"></i></a>
               </div>
+
+              {% if articles %}
+                {% for article in articles %}
+                      <a class="article-item row text-decoration-none" href="{% url 'article_detail' article.Slug %}"> 
+                        <p class="article-items-name">{{article.Title}}</p>
+                        <p class="article-items-description text-truncate ">{{article.Summary}}</p>
+                      </a>
+                      <hr>
+                {% endfor %}
+              {% else %}
+                <a class="article-item row text-decoration-none" href="#"> 
+                  <p class="article-items-name">Comming Soon...</p>
+                  <p class="article-items-description text-truncate">under construction...</p>
+                </a>
+                <hr>
+                <a class="article-item row text-decoration-none" href="#"> 
+                  <p class="article-items-name">Comming Soon...</p>
+                  <p class="article-items-description text-truncate">under construction...</p>
+                </a>
+                <hr>
+                <a class="article-item row text-decoration-none" href="#"> 
+                  <p class="article-items-name">Comming Soon...</p>
+                  <p class="article-items-description text-truncate">under construction...</p>
+                </a>
+                <hr>
+              {% endif %}
                   
-                  {% for article in articles %}
-                    <a class="article-item row text-decoration-none" href="{% url 'article_detail' article.Slug %}"> 
-                      <p class="article-items-name">{{article.Title}}</p>
-                      <p class="article-items-description text-truncate ">{{article.Summary}}</p>
-                    </a>
-                    <hr>
-                  {% endfor %}
+                  
             </div>
 
             
@@ -83,8 +105,8 @@
 
         <section class="section-3 ">
             <div class="container d-flex flex-wrap justify-content-center p-0 mx-auto">
-                <img class="img-fluid col-md-4 col-6 m-0s" src="{% static 'img/me.jpg'%}" alt="">
-                <div class="col-md-6 col-12">
+                <img class="img-fluid about-img col-md-8 col-lg-4 col-8 m-0s" src="{% static 'img/me.jpg'%}" alt="">
+                <div class="col-lg-6 col-md-12 col-12">
                     <h1 class="about-title text-center">About Me</h1>
                     <p class="about-description text-justify">Hey, I'm Mian Sadaf. I'm a Programmer, Graphic Designer and Explorer as a whole. <br>
                     I've been intrested in Computer Technologies since my childhood which help me explore and gain quite an experience on fields such as Graphic Designing, Web Development, etc. <br>
@@ -99,7 +121,7 @@
         
         {% include 'includes/subscribe.html'%}
         {% include 'includes/footer.html' %}
-    </div>
+    {% comment %} </div> {% endcomment %}
 
     
     

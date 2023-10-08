@@ -1,3 +1,27 @@
+{% extends 'main.html' %}
+{% load static %}
 
-<h1>hello, this is under construction!!!</h1>
-<h5>will be available soon...</h5>
+{% block title %}Explore | Sadaf{% endblock title %}
+
+{% block header_items %}
+    <link rel="stylesheet" href="{% static 'css/explore.css'%}">
+{% endblock header_items %}
+
+{% block content %}
+    {% include "includes/navbar.html" %}
+
+    <div class="explore-msg">
+        <h1>This page is Under Construction.</h1>
+        <h2>It will be available soon...</h2>
+        <a href="{% url 'index' %}"><i class="fa-solid fa-house"></i></a>
+        
+        
+    </div>
+
+    
+
+    {% include "includes/subscribe.html" %}
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
