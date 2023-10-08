@@ -1,13 +1,11 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg container ">
+<div class="navbar-placeholder"></div>
+<nav class="navbar navbar-expand-lg " id="navbar">
     <a class="navbar-brand" href="/"><img id="logoImg" src="{% static 'img/logo2.png'%}" alt="Logo"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
+    <div class="navbar-collapse justify-content-end">
+      <ul class="navbar-nav navbar-navigations" id="navbar-toggle">
+        <li class="nav-item">
           <a class="nav-link" href="{% url 'explore' %}">Explore</a>
         </li>
         <li class="nav-item ml-auto">
@@ -20,9 +18,12 @@
           <a class="nav-link" href="{% url 'contact' %}">Contact</a>
         </li>
         <li class="nav-item">
-          <i id="background-btn" class="theme-btn fa-solid fa-circle-half-stroke nav-link"></i>
-          
+          <i id="background-btn" class="toggle-theme fa-solid fa-circle-half-stroke nav-link"></i>
         </li>
       </ul>
     </div>
+    <a class="hamburger">
+        <i class="fa fa-bars" id="menu-icon"></i>
+        <i class="fa fa-times " id="close-icon"></i>
+      </a>
   </nav>

@@ -6,30 +6,32 @@
     --border-color : 204,204,204;
 }
 
-.dark-mode{
+html{
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif!important;
+    text-align: left;
+     
+}
+body{
+    background: linear-gradient(180deg, rgba(var(--background-color), 0.01), rgba(var(--background-color),1) 85%),radial-gradient(ellipse at top left, rgba(13,110,253, 0.5), transparent 50%),radial-gradient(ellipse at top right, rgba(255,228,132, 0.5), transparent 50%),radial-gradient(ellipse at center right, rgba(112.520718,44.062154,249.437846, 0.5), transparent 50%),radial-gradient(ellipse at center left, rgba(214,51,132, 0.5), transparent 50%)!important;
+    background-repeat: no-repeat !important;
+    background-size: 100% 700px!important;
+    font-family: 'Work Sans', sans-serif!important;
+    background-color: rgb(var(--background-color))!important;
+    color: rgb(var(--text-color));
+}
+
+body.dark-mode{
     --background-color: 0,0,0;
     --text-color: 255,255,255;
     --ShadeBackground-color: 15,14,13;
     --border-color: rgb(102,102,102);
 }
 
+ 
 
 
-html{
-    margin: 0;
-    padding: 0;
-    font-family: 'Work Sans', sans-serif!important;
-    text-align: left;
-    
-}
-body{
-    background: linear-gradient(180deg, rgba(var(--background-color), 0.01), rgba(var(--background-color),1) 85%),radial-gradient(ellipse at top left, rgba(13,110,253, 0.5), transparent 50%),radial-gradient(ellipse at top right, rgba(255,228,132, 0.5), transparent 50%),radial-gradient(ellipse at center right, rgba(112.520718,44.062154,249.437846, 0.5), transparent 50%),radial-gradient(ellipse at center left, rgba(214,51,132, 0.5), transparent 50%)!important;
-    background-repeat: no-repeat !important;
-    background-size: 100% 100vh!important;
-    font-family: 'Work Sans', sans-serif!important;
-    background-color: rgb(var(--background-color))!important;
-    color: rgb(var(--text-color));
-}
 
 .card{
     background-color: transparent!important;
@@ -43,13 +45,39 @@ body{
 }
 
     /* navbar */
+.navbar-placeholder{
+    height: 80px;
+}
 
+.navbar-background{
+    background-color: rgb(var(--text-color))!important;
+}
+
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 10;
+    transition: background 0.4s ease-in-out;
+}
+
+.navbar-brand{
+    z-index: 20;
+    display: flex;
+    align-items: center;
+}
 .navbar-brand img{
     width: 75px;
-    margin-top: 20px;
     padding-left: 30px;
+    margin-left: 5vw
     
 }
+
+.navbar-navigations{
+    margin-right:5vw;
+    height: fit-content;
+}
+
 .nav-link{
     cursor: pointer;
     margin: 10px;
@@ -66,7 +94,36 @@ body{
     transform: scale(1.03);
 }
 
-.theme-btn {
+
+.hamburger{
+    position: absolute;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 5vw;
+    padding:30px;
+    color: black;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: none;
+    text-decoration: none;
+    z-index: 20;
+}
+
+.hamburger #menu-icon{
+    font-size: 1.4rem;
+    color: rgb(var(--text-color));
+}
+
+.hamburger #close-icon{
+    font-size: 1.8rem;
+    color: rgb(var(--text-color));
+}
+
+.hamburger:hover{
+    transform: scale(1.05);
+} 
+
+.theme-btn{
     display: inline-block;
     rotate: 225deg;
     transition: transform 0.3s ease; 
@@ -107,7 +164,7 @@ body{
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .navbar-brand img{
         margin-top: 10px;
         width: 75px;
@@ -118,4 +175,47 @@ body{
     .subscribe-section{
         padding: 20px;
     }
+
+    .hamburger{
+        display: block;
+    }
+
+    #close-icon{
+        display: none;
+    }
+
+    .navbar-navigations{
+        background-color: rgb(var(--background-color))!important;
+        position: fixed!important;
+        top: 0;
+        right:0;
+        width: 100vw;
+        height: 0vh;
+        padding: 0;
+        margin: 0%;
+        display: flex;
+        flex-direction: column!important;
+        align-items: center;
+        justify-content: space-evenly;
+        transition: all 0.2s ease-in-out; 
+        overflow: hidden;
+        z-index: 15;
+    }
+
+
+    .navbar-navigations::before{
+        content: '';
+        padding-top: 60px;
+    }
+
+    .nav-link{
+        color: rgb(var(--text-color));
+        
+    }
+
+    .nav-link:hover{
+        color: rgba(var(--text-color),0.8);
+    }
+   
+    
 }
