@@ -38,10 +38,13 @@ let getMode = localStorage.getItem('mode');
 console.log(getMode);
 if(getMode && getMode === "dark"){
     body.classList.add('dark-mode');
+    toggle.classList.add('flipped');
 }
 
 toggle.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
+    toggle.classList.toggle('flipped');
+
     if(!body.classList.contains('dark-mode')){
         return localStorage.setItem('mode', 'light');
     }

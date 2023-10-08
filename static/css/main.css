@@ -123,13 +123,13 @@ body.dark-mode{
     transform: scale(1.05);
 } 
 
-.theme-btn{
+.toggle-theme{
     display: inline-block;
     rotate: 225deg;
     transition: transform 0.3s ease; 
 }
 
-.theme-btn.flipped {
+.toggle-theme.flipped {
     transform:  scale(1.1) rotate(360deg);
 }
 
