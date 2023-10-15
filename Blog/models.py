@@ -10,9 +10,9 @@ class Articles(models.Model):
     Body = models.TextField()
     Summary = models.CharField(max_length=100)
     Date = models.DateTimeField(auto_now_add=True)
-    Image = models.ImageField(upload_to='images/', default='images/Account_dp.png')
+    Image = models.ImageField(upload_to='images/', blank=True, default='images/default.jpg')
     Category = models.ForeignKey('Category', on_delete=models.CASCADE, blank=True)
-    Tags = models.ManyToManyField('Tag', blank=True)
+    Tags = models.ManyToManyField('Tag',blank=True)
     Topic = models.ManyToManyField('Topics', blank=True)
 
     def __str__(self):
