@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Sadaf',
     'Blog',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -126,15 +127,26 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AWS_ACCESS_KEY_ID = 'AKIA33JR7VGDU7U3ZOAQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'mian-sadaf'
+AWS_S3_REGION_NAME = 'eu-north-1' 
+AWS_DEFAULT_ACL = None  
+AWS_S3_FILE_OVERWRITE = False
+
+AWS_STATIC_LOCATION = 'static'
+AWS_MEDIA_LOCATION = 'media'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
