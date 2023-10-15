@@ -15,10 +15,11 @@ class ArticlesView(ListView):
         topic = self.request.GET.get('topic')
         
         if topic:
-            context['articles'] = Articles.objects.filter(Topic__Slug=topic)
-            context['current_topic'] = Topics.objects.get(Slug=topic)
+            context['articles'] = Articles.objects.filter(Topic__Slug=topic).order_by('?')
         else:
-            context['articles'] = Articles.objects.all()
+            context['articles'] = Articles.objects.order_by('?')
+
+        context['latest'] = Articles.objects.latest('Date')
         context['topics'] = Topics.objects.all()
         return context
 

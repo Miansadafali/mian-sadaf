@@ -1,15 +1,19 @@
 .whole-article{
-    width: 70rem;
-    border: 1px solid #ccc;
     border-radius: 0.5rem;
     min-height: max-content;
+    background-color: rgb(255,255,255);
 }
 
+.back-icon{
+    font-size: 2rem;
+    color: rgb(0,0,0);
+    margin: 1rem;
+    cursor: pointer;
+}
 
 .author-details{
     display: flex;
     align-items: center;
-    margin-top: 2rem;
 }
 
 
@@ -25,12 +29,6 @@
     font-size: 1rem;
     font-weight: 600;
     margin: 0;
-}
-
-
-.verified{
-    color: #00bfa6;
-    
 }
 
 

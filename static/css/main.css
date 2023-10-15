@@ -2,14 +2,15 @@
 :root{
     --background-color: 255,255,255;
     --text-color: #000;
-    --ShadeBackground-color: 248, 249, 250;
+    --ShadeBackground-color: 229,229,229;
     --border-color : 204,204,204;
+    --blue-text-color : 34, 113, 147;
 }
 
 html{
     margin: 0;
     padding: 0;
-    font-family: 'Work Sans', sans-serif!important;
+    font-family: 'Manrope', sans-serif!important;
     text-align: left;
      
 }
@@ -17,7 +18,7 @@ body{
     background: linear-gradient(180deg, rgba(var(--background-color), 0.01), rgba(var(--background-color),1) 85%),radial-gradient(ellipse at top left, rgba(13,110,253, 0.5), transparent 50%),radial-gradient(ellipse at top right, rgba(255,228,132, 0.5), transparent 50%),radial-gradient(ellipse at center right, rgba(112.520718,44.062154,249.437846, 0.5), transparent 50%),radial-gradient(ellipse at center left, rgba(214,51,132, 0.5), transparent 50%)!important;
     background-repeat: no-repeat !important;
     background-size: 100% 700px!important;
-    font-family: 'Work Sans', sans-serif!important;
+    font-family: 'Manrope', sans-serif!important;
     background-color: rgb(var(--background-color))!important;
     color: rgb(var(--text-color));
 }
@@ -25,8 +26,9 @@ body{
 body.dark-mode{
     --background-color: 0,0,0;
     --text-color: 255,255,255;
-    --ShadeBackground-color: 15,14,13;
+    --ShadeBackground-color: 26,26,26;
     --border-color: rgb(102,102,102);
+    --blue-text-color : 255,255,255;
 }
 
  
@@ -34,9 +36,10 @@ body.dark-mode{
 
 
 .card{
-    background-color: transparent!important;
+    background-color: rgba(255,255,255,0.3)!important;
     color: rgb(var(--text-color));
     border-color: rgb(var(--border-color));
+    transition: all 0.3s ease-in-out;
 }
 .card:hover{
     transition: all 0.2s ease-in-out;

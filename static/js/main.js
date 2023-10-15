@@ -51,4 +51,4 @@ toggle.addEventListener('click', () => {
         return localStorage.setItem('mode', 'light');
     }
     return localStorage.setItem('mode', 'dark');
-});  
+}); 

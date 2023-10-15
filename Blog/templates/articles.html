@@ -3,6 +3,7 @@
 
 {% block header_items %}
     <link rel="stylesheet" href="{% static 'css/articles.css'%}">
+    <script src="{% static "js/article.js" %}"></script>
 {% endblock header_items %}
 
 {% block title %}Articles | Sadaf{% endblock title %} 
@@ -10,35 +11,66 @@
 {% block content %}
 
     {% include 'includes/navbar.html' %}
-        <section class="heading mx-auto text-center m-3">
-            <h1 class="article-heading">Articles</h1>
-            <p>I like to blog about stuff like productivity, business, YouTube, and other stuff I'm interested in. Hopefully you'll find some of it interesting too. </p>
-        </section>
-        <section class="d-flex justify-content-between list-of-articles mb-4">
-            <div class="col-md-9 col-9 mx-auto">
-                <h3 class="mb-3 sorted-article-title">Listed : {{current_topic|capfirst}}</h3>
-
-                {% for article in articles%}
-                    <a class="card article-card p-3 mb-2"  href="{% url 'article_detail' article.Slug %}">
-                        <h4>{{article.Title|capfirst}}</h4>
-                        <div class="row">
-                            <p class="col-6 m-0"> {{article.Date|date}}</p>
-                            <p class="col-6 m-0"><strong>Category:</strong> {{article.Category}}</p>
-                        </div>
-                        <p class="text-truncate my-1 text-wrap article-card-description mt-3">{{article.Summary}}</p>
-                    </a>
-                {% endfor %}
+        <div class="wrapper">
+            <div class="article-header">
+                <img src="https://www.miansadaf.tech/static/img/me.4985af247a1d.jpg" alt="">
+                <div class="article-title">
+                    <h1>Mian Sadaf Articles</h1>
+                    <p>I like to blog about stuff like productivity, business, YouTube, and other stuff I'm interested in. Hopefully you'll find some of it interesting too.</p>
+                </div>            
             </div>
-
-                <div class="browse-card col-2 mx-auto  p-md-3 p-2">
-                    <h4>Browse Topic</h4>
-                        <a class="browse-item" href="{% url 'articles' %}"><strong>All</strong></a>
-                        {% for topic in topics %}
-                            <a class="browse-item " href="{% url 'articles' %}?topic={{topic.Slug}}">{{topic.Name|capfirst}}</a>
-                        {% endfor %}
+            <!--article content start here  -->
+            <div class="article-list">
+                <h1 class="section-title">Latest</h1>
+                <div class="latest-article">
+                    <img src="https://www.miansadaf.tech/static/img/me.4985af247a1d.jpg" alt="">
+                    <div class="latest-article-details">
+                        <div class="latest-article-minor-details">
+                            <p id="latest-article-category">{{latest.Category}}</p>
+                            <p>{{latest.Date|date}}</p>
+                        </div>
+                        
+                        <div class="latest-article-title">
+                            <h1>{{latest.Title}}</h1>
+                            <p>{{latest.Summary}}</p>
+                        </div>
+                    </div>
+                    
                     
                 </div>
-        </section>
+                <h1 class="section-title">All Articles</h1>
+                <div class="article-by-topic">
+                    <div class="dragging-icon">
+                        <i class="fa-solid fa-angle-left" id="left"></i>
+                    </div>  
+                    <div class="topic">
+                        <a href="{% url 'articles' %}">All</a>
+                        {% for topic in topics%}
+                            <a href="">{{topic.Name|capfirst}}</a>
+                        {% endfor %}
+                    </div>
+                    <div class="dragging-icon">
+                        <i class="fa-solid fa-angle-right" id="right"></i>
+                    </div>
+                </div>
+                <div class="all-articles">
+                    {% for article in articles %}
+                        <a href="{% url "article_detail" article.Slug%}" class="article-card">
+                            <img src="{{article.Image.url}}" alt="">
+                            <div class="article-card-details">
+                                <p id="article-card-category">{{article.Category}}</p>
+                                <p>{{article.Date|date}}</p>
+                            </div>
+                            <div class="article-card-title">
+                                <h1>{{article.Title|capfirst}}</h1>
+                                <p>{{article.Summary}}</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
 
     {% include 'includes/subscribe.html' %}
     {% include 'includes/footer.html' %}
