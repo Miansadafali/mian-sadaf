@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block title %}{{article.Title|capfirst}}{% endblock title %}
+{% block title %}{{article.title|capfirst}}{% endblock title %}
 
 
 {% block header_items %}
@@ -11,34 +11,50 @@
 
 {% block content %}
     {% include 'includes/navbar.html' %}
-    <div class="whole-article container my-5">
-        <div class="m-3">
-            <a href="{% url 'articles' %}"><i class="fa-solid fa-arrow-left back-icon" style="color: #26a7de;"></i></a>
-
-            <div class="author-details px-2">   
-                <img  src="{% static 'img/me.jpg'%}" alt="">
-                <p>{{article.Author}}
-                    
-                </p>
-                
-            </div>
-            <img class="article-image rounded" src="{{article.Image.url}}" alt="">
-            <div class="date-category d-flex justify-content-between p-2">
-                <p>{{article.Date}}</p>
-                <p> <strong>Category: </strong>{{article.Category}}</p>
-            </div>
-            
-            <div>
-                <h2 class="article-title">{{article.Title|capfirst}}</h2>
-                <p class="article-body my-4">{{article.Body}}</p>
-
-            </div>
-            <div class="tags-list">{% for tag in tags%}<span class="tags">#{{tag}}</span>{% endfor %}</div>
-
+    <main class="container">
+        <div class="my-5 rounded text-body-emphasis bg-body-secondary">
+            <img class="rounded fluid-img thumbnail-img" src="{{article.image.url}}" alt="" style="object-fit: cover;width:100%; height:400px;">
         </div>
-    </div>
-   
+        <div class="row g-5">
+          <div class="col-md-8 mb-5">
+            
+      
+            <article class="blog-post">
+              <h2 class="display-5 link-body-emphasis mb-1">{{article.title}}</h2>
+              <small class="blog-post-meta">{{article.date|date}} <a href="#">by {{article.author}}</a></small>
+                
+              <p>{{article.body|safe}}</p>
+            </article>
+          </div>
+      
+          <div class="col-md-4">
+            <div class="position-sticky mt-5 pt-5" style="top: 2rem;">
+              <div class="about-section p-4 mb-3 bg-body-tertiary rounded">
+                <h4 class="fst-italic">About</h4>
+                <p class="mb-0">{{article.summary}}</p>
+              </div>
+      
+              <div>
+                <h4 class="fst-italic">Recent posts</h4>
+                <ul class="list-unstyled">
+                  {% for post in recent_posts %}
+                    <li>
+                      <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                        <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                        <div class="col-lg-8">
+                          <h6 class="mb-0">{{post.title}}</h6>
+                          <small class="text-body-secondary">{{post.date}}</small>
+                        </div>
+                      </a>
+                    </li>
+                  {% endfor %}                
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </main>  
 
-    {% include 'includes/subscribe.html' %}
     {% include 'includes/footer.html' %}
 {% endblock content %}

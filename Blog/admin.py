@@ -1,24 +1,28 @@
 from django.contrib import admin
-from .models import Articles, Category, Tag, Topics
+from .models import Article,  Topic
 
-class BlogAdmin(admin.ModelAdmin):
-    list_display = ('Title', 'Author', 'Date')
-    list_filter = ('Author', 'Date')
-    search_fields = ('Title', 'Body')
-    prepopulated_fields = {'Slug': ('Title',)}
 
-class CategoryAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'Slug': ('Name',)}
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('title','author', 'date','get_topics')
+    list_filter = ('author', 'date')
+    search_fields = ['title',]
+    prepopulated_fields = {'slug': ('title',)}
+    exclude = ['author','summary']
+    
+    def get_topics(self, obj):
+        return ", ".join(topic.name for topic in obj.topics.all())
 
-class TagAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'Slug': ('Name',)}
+    get_topics.short_description = 'Topics'
+    
 
-class TopicsAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'Slug': ('Name',)}
 
-admin.site.register(Articles, BlogAdmin)
-admin.site.register(Category, CategoryAdmin)
-admin.site.register(Tag, TagAdmin)
-admin.site.register(Topics, TopicsAdmin)
 
-# Register your models here.
+class TopicAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+    list_display = ['name', 'slug']
+    search_fields = ['name', 'slug']
+    
+    
+
+admin.site.register(Article, ArticleAdmin)
+admin.site.register(Topic, TopicAdmin)

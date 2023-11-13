@@ -23,16 +23,16 @@
             <div class="article-list">
                 <h1 class="section-title">Latest</h1>
                 <div class="latest-article">
-                    <img src="{{latest.Image.url}}" alt="">
+                    <img src="{{latest.image.url}}" alt="">
                     <div class="latest-article-details">
                         <div class="latest-article-minor-details">
                             <p id="latest-article-category">{{latest.Category}}</p>
-                            <p>{{latest.Date|date}}</p>
+                            <p>{{latest.date|date}}</p>
                         </div>
                         
                         <div class="latest-article-title">
-                            <h1>{{latest.Title}}</h1>
-                            <p>{{latest.Summary}}</p>
+                            <h1>{{latest.title}}</h1>
+                            <p>{{latest.summary}}</p>
                         </div>
                     </div>
                     
@@ -55,15 +55,15 @@
                 </div>
                 <div class="all-articles">
                     {% for article in articles %}
-                        <a href="{% url "article_detail" article.Slug%}" class="article-card">
-                            <img src="{{article.Image.url}}" alt="">
+                        <a href="{% url "article_detail" article.slug%}" class="article-card">
+                            <img src="{{article.image.url}}" alt="">
                             <div class="article-card-details">
                                 <p id="article-card-category">{{article.Category}}</p>
-                                <p>{{article.Date|date}}</p>
+                                <p>{{article.date|date}}</p>
                             </div>
                             <div class="article-card-title">
-                                <h1>{{article.Title|capfirst}}</h1>
-                                <p>{{article.Summary}}</p>
+                                <h1>{{article.title|capfirst}}</h1>
+                                <p>{{article.summary}}</p>
                             </div>
                         </a>
                     {% endfor %}

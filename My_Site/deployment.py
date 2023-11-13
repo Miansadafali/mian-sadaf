@@ -50,3 +50,17 @@ DATABASES = {
     'default': dj_database_url.config()
 }
 
+
+
+AWS_ACCESS_KEY_ID = 'AKIA33JR7VGDU7U3ZOAQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'mian-sadaf'
+AWS_S3_REGION_NAME = 'eu-north-1' 
+AWS_DEFAULT_ACL = None  
+AWS_S3_FILE_OVERWRITE = False
+
+AWS_STATIC_LOCATION = 'static'
+AWS_MEDIA_LOCATION = 'media'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

@@ -1,48 +1,34 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
+from froala_editor.fields import FroalaField
+from taggit.managers import TaggableManager
+
 
 # Create your models here.
 
-class Articles(models.Model):
-    Title = models.CharField(max_length=100)
-    Slug = models.SlugField(unique=True)
-    Author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    Body = models.TextField()
-    Summary = models.CharField(max_length=100)
-    Date = models.DateTimeField(auto_now_add=True)
-    Image = models.ImageField(upload_to='images/', blank=True, default='images/default.jpg')
-    Category = models.ForeignKey('Category', on_delete=models.CASCADE, blank=True)
-    Tags = models.ManyToManyField('Tag',blank=True)
-    Topic = models.ManyToManyField('Topics', blank=True)
+class Article(models.Model):
+    title = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    body = FroalaField()
+    summary = models.CharField(max_length=100, null=True)
+    date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='images/', blank=True, default='images/default.jpg')
+    tags = TaggableManager(blank=True)
+    topics = models.ManyToManyField('Topic', blank=True)
 
     def __str__(self):
-        return self.Title
+        return self.title
 
     def get_absolute_url(self):
-        return reverse("article_detail", kwargs={"article_slug": self.Slug})
+        return reverse("article_detail", kwargs={"article_slug": self.slug})
     
 
-
-
-class Category(models.Model):
-    Name = models.CharField(max_length=100)
-    Slug = models.SlugField(unique=True)
+class Topic(models.Model):
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True)
 
     def __str__(self):
-        return self.Name
-
-
-class Tag(models.Model):
-    Name = models.CharField(max_length=100)
-    Slug = models.SlugField(unique=True)
-
-    def __str__(self):
-        return self.Name
-    
-class Topics(models.Model):
-    Name = models.CharField(max_length=100)
-    Slug = models.SlugField(unique=True)
-
-    def __str__(self):
-        return self.Name
+        return self.name
 

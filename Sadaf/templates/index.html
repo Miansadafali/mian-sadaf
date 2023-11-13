@@ -65,16 +65,16 @@
 
             <div class="article-card col-md-5 col-sm-8 p-2 mx-auto">
               <div class="d-flex mb-3">
-                <h1 class="card-title">Articles</h1>
+                <h1 class="card-title">Article</h1>
                 <div class="w-100"></div>
                 <a href="{% url 'articles' %}"><i class="show-more-icon fa-solid fa-arrow-right fa-xl m-3 mt-4 pt-2" style="color: #26a7de"></i></a>
               </div>
 
-              {% if articles %}
-                {% for article in articles %}
-                      <a class="article-item row text-decoration-none" href="{% url 'article_detail' article.Slug %}"> 
-                        <p class="article-items-name">{{article.Title}}</p>
-                        <p class="article-items-description text-truncate ">{{article.Summary}}</p>
+              {% if Article %}
+                {% for article in Article %}
+                      <a class="article-item row text-decoration-none" href="{% url 'article_detail' article.slug %}"> 
+                        <p class="article-items-name">{{article.title}}</p>
+                        <p class="article-items-description text-truncate ">{{article.summary}}</p>
                       </a>
                       <hr>
                 {% endfor %}

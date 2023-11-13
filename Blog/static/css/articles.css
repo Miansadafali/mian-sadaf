@@ -68,7 +68,7 @@
 }
 
 
-/* all articles */
+/* all Article */
 
 .section-title{
     font-size: 2rem;
@@ -159,7 +159,7 @@
 }
 
 
-.all-articles{
+.all-Article{
     display: flex;
     flex-wrap: wrap;
     margin:auto;
