@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     'storages',
     'froala_editor',
     'taggit',
-    'taggit_autosuggest',
     'Sadaf',
     'Blog',
     
