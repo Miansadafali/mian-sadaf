@@ -12,6 +12,8 @@ class ArticleView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        
+        context['recent_post'] = Article.objects.order_by('-date').first()
         topic = self.request.GET.get('topic')
         
         if topic:
@@ -19,8 +21,8 @@ class ArticleView(ListView):
         else:
             context['articles'] = Article.objects.order_by('?')
 
-        # context['latest'] = Article.objects.latest('date')
         context['topics'] = Topic.objects.all()
+        
         return context
 
     
@@ -33,7 +35,6 @@ class ArticleDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['tags'] = self.object.tags.all()
         context['recent_posts'] = Article.objects.order_by('-date').exclude(slug=self.object.slug).all()[:3]
         return context
 

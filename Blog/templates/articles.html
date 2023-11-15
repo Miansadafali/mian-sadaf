@@ -13,26 +13,27 @@
     {% include 'includes/navbar.html' %}
         <div class="wrapper">
             <div class="article-header">
-                <img src="https://www.miansadaf.tech/static/img/me.4985af247a1d.jpg" alt="">
                 <div class="article-title">
-                    <h1>Mian Sadaf Articles</h1>
-                    <p>I like to blog about stuff like productivity, business, YouTube, and other stuff I'm interested in. Hopefully you'll find some of it interesting too.</p>
+                    <h1>Articles</h1>
+                    <p>I like to blog about stuff like Productivity, Programming, Philosophy and other things .I'm interested in. Hopefully you'll find some of it interesting too.</p>
                 </div>            
             </div>
             <!--article content start here  -->
             <div class="article-list">
                 <h1 class="section-title">Latest</h1>
                 <div class="latest-article">
-                    <img src="{{latest.image.url}}" alt="">
+                    <img src="{{recent_post.image.url}}" alt="">
                     <div class="latest-article-details">
                         <div class="latest-article-minor-details">
-                            <p id="latest-article-category">{{latest.Category}}</p>
-                            <p>{{latest.date|date}}</p>
+                            {% if recent_post.topic %}
+                                <p id="latest-article-category">{{recent_post.topic}}</p>
+                            {% endif %}
+                            <p>{{recent_post.date|date}}</p>
                         </div>
                         
                         <div class="latest-article-title">
-                            <h1>{{latest.title}}</h1>
-                            <p>{{latest.summary}}</p>
+                            <h1>{{recent_post.title}}</h1>
+                            <p>{{latest_article.summary}}</p>
                         </div>
                     </div>
                     
