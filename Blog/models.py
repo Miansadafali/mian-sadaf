@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from froala_editor.fields import FroalaField
-from taggit.managers import TaggableManager
+# from taggit.managers import TaggableManager
 
 
 # Create your models here.
@@ -15,7 +15,8 @@ class Article(models.Model):
     summary = models.CharField(max_length=100, null=True)
     date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='images/', blank=True, default='images/default.jpg')
-    tags = TaggableManager(blank=True)
+    tags = models.CharField(max_length=100, blank=True, null=True)  
+            # TaggableManager(blank=True)
     topics = models.ManyToManyField('Topic', blank=True)
 
     def __str__(self):
