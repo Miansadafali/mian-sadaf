@@ -5,8 +5,6 @@ from froala_editor.fields import FroalaField
 # from taggit.managers import TaggableManager
 
 
-# Create your models here.
-
 class Article(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
