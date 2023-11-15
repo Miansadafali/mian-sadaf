@@ -29,7 +29,7 @@ def custom_404(request, exception):
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('', include('Sadaf.urls')),
     path('', include('Blog.urls')),
 ]
