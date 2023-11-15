@@ -19,6 +19,9 @@
 
 
 .section-2{
+    height: 80vh;
+    display: flex;
+    align-items: center;
     margin-top: 40px;
     padding: 100px;
     border-radius: 15px;
@@ -138,6 +141,10 @@
     .section-1 h1{
         font-size: 1.5rem;
     }
+    .section-2{
+        height: auto;
+    }
+
 }
 
 

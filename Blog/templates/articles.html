@@ -26,7 +26,7 @@
                     <div class="latest-article-details">
                         <div class="latest-article-minor-details">
                             {% if recent_post.topic %}
-                                <p id="latest-article-category">{{recent_post.topic}}</p>
+                                <p id="latest-article-category">{{recent_post.topics}}</p>
                             {% endif %}
                             <p>{{recent_post.date|date}}</p>
                         </div>
@@ -59,7 +59,12 @@
                         <a href="{% url "article_detail" article.slug%}" class="article-card">
                             <img src="{{article.image.url}}" alt="">
                             <div class="article-card-details">
-                                <p id="article-card-category">{{article.Category}}</p>
+                            {% if recent_post.topic %}
+                                <p id="article-card-category">{{article.topics}}</p>
+                            {% else %}
+                                <p id="article-card-category">Uncategorized</p>
+                            {% endif %}
+                                
                                 <p>{{article.date|date}}</p>
                             </div>
                             <div class="article-card-title">
