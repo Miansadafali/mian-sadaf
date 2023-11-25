@@ -1,3 +1,51 @@
+.starter-header{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(var(--text-color));
+    padding: 0 15%;
+}
+
+.starter-header h1{
+    font-size: 5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+ .colored-text{
+    color: #26a7de;
+ }
+
+
+@media screen and (max-width: 768px){
+    .starter-header h1{
+        font-size: 3rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .section-1{
     height: fit-content;
     overflow: hidden;

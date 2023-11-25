@@ -10,118 +10,76 @@
 {% block content %}
     
   {% include 'includes/navbar.html' %}
-{% comment %} 
-    <div class="p-0 m-0"> {% endcomment %}
-      <section class="section-1 my-auto">
-        <h1 class="mx-auto w-75 text-center pt-4">Hello, I'm Mian Sadaf.</h1>
-        <h1 class="mx-auto w-75 text-center">Alive for seeking out new horizons of imagination and significance</h1>
 
-        <div class="promotion">
-          <img src="{% static "img/heart2.png" %}" class="container" ></img>
+      <section class="starter-header">
+          <h1>Alive for seeking out new horizons of <span class="colored-text">imagination</span> and <span class="colored-text">significance</span></h1>
+          <p style="font-family:monospace;">Mian Sadaf Ali Shah</p>
+        </section>
+
+      <section>
+        <div class="container px-4 py-5" id="featured-3">
+          <h2 class="pb-2 border-bottom">Recent Articles</h2>
+          <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+              <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="col p-4 d-flex flex-column position-static">
+                    {% for topic in Articles.0.topics.all %}
+                      <strong class="d-inline-block mb-2 text-success-emphasis">{{topic.name}}</strong>
+                    {% endfor %}
+                    <h3 class="mb-0">{{Articles.0.title | capfirst}}</h3>
+                    <div class="mb-1 text-body-secondary">{{Articles.0.date|date}}</div>
+                    <p class="card-text mb-auto">{{Articles.0.summary}}</p>
+                    <a href="{% url "article_detail" Articles.0.slug %}" class="icon-link gap-1 icon-link-hover stretched-link">
+                      Continue reading
+                      <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                    </a>
+                  </div>
+                  <div class="col-auto d-none d-lg-block">
+                    <img class="bd-placeholder-img" width="200" height="250" src="{{Articles.0.image.url}}" alt="" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="col p-4 d-flex flex-column position-static">
+                    {% for topic in Articles.1.topics.all %}
+                      <strong class="d-inline-block mb-2 text-success-emphasis">{{topic.name}}</strong>
+                    {% endfor %}
+                    <h3 class="mb-0">{{Articles.1.title|title}}</h3>
+                    <div class="mb-1 text-body-secondary">{{Articles.1.date|date}}</div>
+                    <p class="mb-auto">{{Articles.1.summary}}</p>
+                    <a href="{% url "article_detail" Articles.1.slug %}" class="icon-link gap-1 icon-link-hover stretched-link">
+                      Continue reading
+                      <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                    </a>
+                  </div>
+                  <div class="col-auto d-none d-lg-block">  
+                    <img class="bd-placeholder-img" width="200" height="250" src="{{Articles.1.image.url}}" alt="" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                  </div>
+                </div>
+              </div>
+          </div>
         </div>
       </section>
 
-
-        <section class="section-2  row mx-auto my-3 py-3">
-
-            <div class="container col-md-5 col-sm-8 p-2 mx-auto">
-                  <div class="d-flex mb-3">
-                    <h1 class="card-title">Explore</h1>
-                    <div class="w-100"></div>
-                    <a href="{% url 'explore' %}"><i class="show-more-icon fa-solid fa-arrow-right fa-xl m-3 mt-4 pt-2" style="color: #26a7de"></i></a>
-                  </div>
+      <section class="section-3 ">
+          <div class="container d-flex flex-wrap justify-content-center p-0 mx-auto">
+              <img class="img-fluid about-img col-md-8 col-lg-4 col-8 m-0s" src="{% static 'img/me.jpg'%}" alt="">
+              <div class="col-lg-6 col-md-12 col-12">
+                  <h1 class="about-title text-center">About Me</h1>
+                  <p class="about-description text-justify">Hey, I'm <span class="colored-text">Mian Sadaf</span>. I'm a Programmer, Graphic Designer and <span class="colored-text">Explorer🫀 as a whole.</span> <br>
+                  I've been intrested in Computer Technologies since my childhood which help me explore and gain quite an experience on fields such as Graphic Designing, Web Development, etc. <br>
+                  Now it been a while that i'm exploring the field of <span class="colored-text">AI</span>🦾. which has inspired me to contribute to it with a positive impact. <br>
+                  Currently i'm a student of Bachlor's of <span style="color:red">Computer Science</span> at Comsats University Islamabad. <br><br>
+                  If you want to learn even more about me and how I got started, there's a whole page here 🙂</p>
                   
-                 
-                    <div class="explore-item row card p-1 my-1">
-                      <div class="d-flex p-0">
-                          <img class="explore-list-item-pic" src="{% static 'img/me.jpg'%}" alt="">
-                          <div>
-                              <p class="explore-list-item-name">Comming Soon...</p> 
-                              <p class="explore-list-item-description text-truncate">Under Construction</p>
-                          </div>
-                      </div>
-                    </div>
-
-                    <div class="explore-item row card p-1 my-1">
-                      <div class="d-flex p-0">
-                          <img class="explore-list-item-pic" src="{% static 'img/logo2.png'%}" alt="">
-                          <div>
-                              <p class="explore-list-item-name"></p> 
-                              <p class="explore-list-item-description text-truncate"></p>
-                          </div>
-                      </div>
-                    </div>
-
-                    <div class="explore-item row card p-1 my-1">
-                      <div class="d-flex p-0">
-                          <img class="explore-list-item-pic" src="{% static 'img/logo2.png'%}" alt="">
-                          <div>
-                              <p class="explore-list-item-name"></p> 
-                              <p class="explore-list-item-description text-truncate"></p>
-                          </div>
-                      </div>
-                    </div>
-            </div>
-
-            <div class="article-card col-md-5 col-sm-8 p-2 mx-auto">
-              <div class="d-flex mb-3">
-                <h1 class="card-title">Article</h1>
-                <div class="w-100"></div>
-                <a href="{% url 'articles' %}"><i class="show-more-icon fa-solid fa-arrow-right fa-xl m-3 mt-4 pt-2" style="color: #26a7de"></i></a>
-              </div>
-
-              {% if Articles %}
-                {% for article in Articles %}
-                      <a class="article-item row text-decoration-none" href="{% url 'article_detail' article.slug %}"> 
-                        <p class="article-items-name">{{article.title}}</p>
-                        <p class="article-items-description text-truncate ">{{article.summary}}</p>
-                      </a>
-                      <hr>
-                {% endfor %}
-              {% else %}
-                <a class="article-item row text-decoration-none" href="#"> 
-                  <p class="article-items-name">Comming Soon...</p>
-                  <p class="article-items-description text-truncate">under construction...</p>
-                </a>
-                <hr>
-                <a class="article-item row text-decoration-none" href="#"> 
-                  <p class="article-items-name">Comming Soon...</p>
-                  <p class="article-items-description text-truncate">under construction...</p>
-                </a>
-                <hr>
-                <a class="article-item row text-decoration-none" href="#"> 
-                  <p class="article-items-name">Comming Soon...</p>
-                  <p class="article-items-description text-truncate">under construction...</p>
-                </a>
-                <hr>
-              {% endif %}
-                  
-                  
-            </div>
-
-            
-
-        </section>
-
-        <section class="section-3 ">
-            <div class="container d-flex flex-wrap justify-content-center p-0 mx-auto">
-                <img class="img-fluid about-img col-md-8 col-lg-4 col-8 m-0s" src="{% static 'img/me.jpg'%}" alt="">
-                <div class="col-lg-6 col-md-12 col-12">
-                    <h1 class="about-title text-center">About Me</h1>
-                    <p class="about-description text-justify">Hey, I'm Mian Sadaf. I'm a Programmer, Graphic Designer and Explorer as a whole. <br>
-                    I've been intrested in Computer Technologies since my childhood which help me explore and gain quite an experience on fields such as Graphic Designing, Web Development, etc. <br>
-                    Now it been a while that i'm exploring the field of AI. which has inspired me to contribute to it with a positive impact. <br>
-                    Currently i'm a student of Bachlor's of Computer Science at Comsats University Islamabad. <br><br>
-                    If you want to learn even more about me and how I got started, there's a whole page here 🙂</p>
-                    
-                  </div>
-            </div>
-        </section>
+                </div>
+          </div>
+      </section>
 
         
         {% include 'includes/subscribe.html'%}
         {% include 'includes/footer.html' %}
-    {% comment %} </div> {% endcomment %}
 
     
     

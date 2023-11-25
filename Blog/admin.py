@@ -3,16 +3,12 @@ from .models import Article,  Topic
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title','author', 'date','get_topics')
+    list_display = ('title','author', 'date')
     list_filter = ('author', 'date')
     search_fields = ['title',]
     prepopulated_fields = {'slug': ('title',)}
-    exclude = ['author','summary']
+    exclude = ['author',]
     
-    def get_topics(self, obj):
-        return ", ".join(topic.name for topic in obj.topics.all())
-
-    get_topics.short_description = 'Topics'
     
 
 
