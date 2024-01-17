@@ -28,7 +28,7 @@
                     {% for topic in article.topics.all %}
                       <strong class="d-inline-block mb-2 text-success-emphasis">{{topic.name}}</strong>
                     {% endfor %}
-                    <h3 class="mb-0">{{article.title | capfirst}}</h3>
+                    <h3 class="trancate-text mb-0">{{article.title | capfirst}}</h3>
                     <div class="mb-1 text-body-secondary">{{article.date|date}}</div>
                     <p class="card-text mb-auto">{{article.summary}}</p>
                     <a href="{% url "article_detail" article.slug %}" class="icon-link gap-1 icon-link-hover stretched-link">

@@ -4,6 +4,13 @@ body{
     background-size: 100% 700px!important;
 }
 
+.trancate-text{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
 .starter-header{
     height: 80vh;
     display: flex;
@@ -28,29 +35,6 @@ body{
         font-size: 3rem;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .section-1{
     height: fit-content;
