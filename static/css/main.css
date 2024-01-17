@@ -2,9 +2,10 @@
 :root{
     --background-color: 255,255,255;
     --text-color: #333;
-    --ShadeBackground-color: 229,229,229;
+    --ShadeBackground-color: 245, 245, 245;
     --border-color : 204,204,204;
-    --blue-text-color : 34, 113, 147;
+    --blue-text-color : 38, 167, 222;
+    --purple-text-color : 107, 102, 198;
 }
 
 html{
@@ -15,9 +16,6 @@ html{
      
 }
 body{
-    background: linear-gradient(180deg, rgba(var(--background-color), 0.01), rgba(var(--background-color),1) 85%),radial-gradient(ellipse at top left, rgba(13,110,253, 0.5), transparent 50%),radial-gradient(ellipse at top right, rgba(255,228,132, 0.5), transparent 50%),radial-gradient(ellipse at center right, rgba(112.520718,44.062154,249.437846, 0.5), transparent 50%),radial-gradient(ellipse at center left, rgba(214,51,132, 0.5), transparent 50%)!important;
-    background-repeat: no-repeat !important;
-    background-size: 100% 700px!important;
     font-family: 'Manrope', sans-serif!important;
     background-color: rgb(var(--background-color))!important;
     color: rgb(var(--text-color));
@@ -29,6 +27,7 @@ body.dark-mode{
     --ShadeBackground-color: 26,26,26;
     --border-color: rgb(102,102,102);
     --blue-text-color : 255,255,255;
+    --purple-text-color : 255,255,255;
 }
 
  

@@ -16,52 +16,36 @@
           <p style="font-family:monospace;">Mian Sadaf Ali Shah</p>
         </section>
 
+      {% if Articles %}
       <section>
         <div class="container px-4 py-5" id="featured-3">
           <h2 class="pb-2 border-bottom">Recent Articles</h2>
           <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+            {% for article in Articles %}
               <div class="col-md-6">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                   <div class="col p-4 d-flex flex-column position-static">
-                    {% for topic in Articles.0.topics.all %}
+                    {% for topic in article.topics.all %}
                       <strong class="d-inline-block mb-2 text-success-emphasis">{{topic.name}}</strong>
                     {% endfor %}
-                    <h3 class="mb-0">{{Articles.0.title | capfirst}}</h3>
-                    <div class="mb-1 text-body-secondary">{{Articles.0.date|date}}</div>
-                    <p class="card-text mb-auto">{{Articles.0.summary}}</p>
-                    <a href="{% url "article_detail" Articles.0.slug %}" class="icon-link gap-1 icon-link-hover stretched-link">
+                    <h3 class="mb-0">{{article.title | capfirst}}</h3>
+                    <div class="mb-1 text-body-secondary">{{article.date|date}}</div>
+                    <p class="card-text mb-auto">{{article.summary}}</p>
+                    <a href="{% url "article_detail" article.slug %}" class="icon-link gap-1 icon-link-hover stretched-link">
                       Continue reading
                       <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
                     </a>
                   </div>
                   <div class="col-auto d-none d-lg-block">
-                    <img class="bd-placeholder-img" width="200" height="250" src="{{Articles.0.image.url}}" alt="" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <img class="bd-placeholder-img" width="200" height="250" src="{{article.image.url}}" alt="" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                  <div class="col p-4 d-flex flex-column position-static">
-                    {% for topic in Articles.1.topics.all %}
-                      <strong class="d-inline-block mb-2 text-success-emphasis">{{topic.name}}</strong>
-                    {% endfor %}
-                    <h3 class="mb-0">{{Articles.1.title|title}}</h3>
-                    <div class="mb-1 text-body-secondary">{{Articles.1.date|date}}</div>
-                    <p class="mb-auto">{{Articles.1.summary}}</p>
-                    <a href="{% url "article_detail" Articles.1.slug %}" class="icon-link gap-1 icon-link-hover stretched-link">
-                      Continue reading
-                      <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                    </a>
-                  </div>
-                  <div class="col-auto d-none d-lg-block">  
-                    <img class="bd-placeholder-img" width="200" height="250" src="{{Articles.1.image.url}}" alt="" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                  </div>
-                </div>
-              </div>
+              {% endfor %}
           </div>
         </div>
       </section>
-
+      {% endif %}
       <section class="section-3 ">
           <div class="container d-flex flex-wrap justify-content-center p-0 mx-auto">
               <img class="img-fluid about-img col-md-8 col-lg-4 col-8 m-0s" src="{% static 'img/me.jpg'%}" alt="">

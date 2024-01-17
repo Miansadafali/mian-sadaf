@@ -17,20 +17,18 @@
         </div>
         <div class="row g-5">
           <div class="col-md-9 mb-5">
-            
-      
             <article class="blog-post">
               <h2 class="display-5 link-body-emphasis mb-1">{{article.title}}</h2>
-              <small class="blog-post-meta">{{article.date|date}} <a href="#">by {{article.author}}</a></small>
+              <small class="blog-post-meta">{{article.date|date}} <a href="#">by {{article.author|capfirst}}</a></small>
                 
-              <p>{{article.body|safe}}</p>
+              <p style="font-family: Arial, Helvetica, sans-serif;">{{article.body|safe}}</p>
             </article>
           </div>
       
           <div class="col-md-3">
             <div class="position-sticky mt-5 pt-5" style="top: 2rem;">
               <div class="about-section p-4 mb-3 bg-body-tertiary rounded">
-                <h4 class="fst-italic">About</h4>
+                <h4 class="fst-italic">Summary</h4>
                 <p class="mb-0">{{article.summary}}</p>
               </div>
       
@@ -39,8 +37,8 @@
                 <ul class="list-unstyled">
                   {% for post in recent_posts %}
                     <li>
-                      <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-                        <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                      <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="{% url "article_detail" post.slug %}">
+                        <img class="bd-placeholder-img" width="100" height="96" style="object-fit: cover; " src="{{post.image.url}}" alt="" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
                         <div class="col-lg-8">
                           <h6 class="mb-0">{{post.title}}</h6>
                           <small class="text-body-secondary">{{post.date}}</small>

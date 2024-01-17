@@ -1,13 +1,15 @@
+body{
+  background: linear-gradient(180deg, rgba(var(--background-color), 0.01), rgba(var(--background-color),1) 85%),radial-gradient(ellipse at top left, rgba(13,110,253, 0.5), transparent 50%),radial-gradient(ellipse at top right, rgba(255,228,132, 0.5), transparent 50%),radial-gradient(ellipse at center right, rgba(112.520718,44.062154,249.437846, 0.5), transparent 50%),radial-gradient(ellipse at center left, rgba(214,51,132, 0.5), transparent 50%)!important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 700px!important;
+}
+
 .about section:nth-child(odd){
     flex-direction: row-reverse;
     text-align: justify;
 }
 div section:nth-child(even){
     text-align:justify;
-}
-
-body{
-    background-color: #f8f9fa;
 }
 
 section img{
@@ -58,3 +60,11 @@ section img{
     top: auto;
     bottom: 0;
   }
+
+
+
+@media screen and (max-width: 768px) {
+    .section-1{
+        border-radius: 0px;
+    }
+}

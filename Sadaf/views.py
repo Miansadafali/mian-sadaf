@@ -8,7 +8,10 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def Index(request):
-    articles = Article.objects.all().order_by('-date')[:2]
+    try:
+        articles = Article.objects.all().order_by('-date')[:2]
+    except:
+        articles = None
     return render(request, 'index.html', {
         'Articles' : articles
     })

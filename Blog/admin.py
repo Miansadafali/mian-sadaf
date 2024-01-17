@@ -10,9 +10,6 @@ class ArticleAdmin(admin.ModelAdmin):
     exclude = ['author',]
     
     
-
-
-
 class TopicAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     list_display = ['name', 'slug']

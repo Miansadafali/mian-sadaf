@@ -4,3 +4,11 @@ main{
 .about-section{
     background-color: rgb(var(--ShadeBackground-color))!important;
 }
+
+.blog-post h2{
+    color: rgb(var(--text-color))!important;
+}
+
+.blog-post-meta a{
+    color: rgb(var(--blue-text-color))!important;
+}
