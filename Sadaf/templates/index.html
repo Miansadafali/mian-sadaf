@@ -10,10 +10,10 @@
 {% block content %}
     
   {% include 'includes/navbar.html' %}
-
+    <div class="-body">
       <section class="starter-header">
           <h1>Alive for seeking out new horizons of <span class="colored-text">imagination</span> and <span class="colored-text">significance</span></h1>
-          <p style="font-family:monospace;">Mian Sadaf Ali Shah</p>
+          <p style="font-family:monospace;">Mian Zain Ali Shah</p>
         </section>
 
       {% if Articles %}
@@ -29,15 +29,15 @@
                       <strong class="d-inline-block mb-2 text-success-emphasis">{{topic.name}}</strong>
                     {% endfor %}
                     <h3 class="trancate-text mb-0">{{article.title | capfirst}}</h3>
-                    <div class="mb-1 text-body-secondary">{{article.date|date}}</div>
+                    <div class="mb-1 text-body-secondary" style="color: #ced4da important">{{article.date|date}}</div>
                     <p class="card-text mb-auto">{{article.summary}}</p>
-                    <a href="{% url "article_detail" article.slug %}" class="icon-link gap-1 icon-link-hover stretched-link">
+                    <a href="{% url "article_detail" article.slug %}" class="icon-link gap-1 icon-link-hover colored-text stretched-link ">
                       Continue reading
                       <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
                     </a>
                   </div>
                   <div class="col-auto d-none d-lg-block">
-                    <img class="bd-placeholder-img" width="200" height="250" src="{{article.image.url}}" alt="" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <img class="bd-placeholder-img" width="200" height="250" src="{{article.image.url}}" alt="" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" style="object-fit: cover;">
                   </div>
                 </div>
               </div>
@@ -51,7 +51,7 @@
               <img class="img-fluid about-img col-md-8 col-lg-4 col-8 m-0s" src="{% static 'img/me.jpg'%}" alt="">
               <div class="col-lg-6 col-md-12 col-12">
                   <h1 class="about-title text-center">About Me</h1>
-                  <p class="about-description text-justify">Hey, I'm <span class="colored-text">Mian Sadaf</span>. I'm a Programmer, Graphic Designer and <span class="colored-text">Explorer🫀 as a whole.</span> <br>
+                  <p class="about-description text-justify">Hey, I'm <span class="colored-text">Mian Zain</span>. I'm a Programmer, Graphic Designer and <span class="colored-text">Explorer🫀 as a whole.</span> <br>
                   I've been intrested in Computer Technologies since my childhood which help me explore and gain quite an experience on fields such as Graphic Designing, Web Development, etc. <br>
                   Now it been a while that i'm exploring the field of <span class="colored-text">AI</span>🦾. which has inspired me to contribute to it with a positive impact. <br>
                   Currently i'm a student of Bachlor's of <span style="color:red">Computer Science</span> at Comsats University Islamabad. <br><br>
@@ -60,7 +60,7 @@
                 </div>
           </div>
       </section>
-
+    </div>
         
         {% include 'includes/subscribe.html'%}
         {% include 'includes/footer.html' %}
